@@ -16,7 +16,7 @@ namespace CardioLibrary
             int Frequenzamax;
             Console.WriteLine("inserisci l' età");
             età = Convert.ToInt32(Console.ReadLine());
-
+            Frequenzamax = 220 - età;
         }
         
     }
