@@ -10,7 +10,11 @@ namespace DataCardio.Tests
         [TestMethod]
         public void TestMethod1()
         {
-
+            int età;
+            int battitimax;
+            int Frequenzamax;
+            Console.WriteLine("inserisci l' età");
+            età = Convert.ToInt32(Console.ReadLine());
         }
     }
 }
