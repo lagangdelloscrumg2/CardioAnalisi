@@ -10,7 +10,14 @@ namespace DataCardio.Tests
         [TestMethod]
         public void TestMethod1()
         {
+            int età;
+            int exp;
+            int obt;
 
+            età = 21;
+            exp = 199;
+            obt =  CardioLibrary.DataCardio.Metodo1(età);
+            Assert.AreEqual(obt, exp);
         }
     }
 }

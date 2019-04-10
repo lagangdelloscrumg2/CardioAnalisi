@@ -8,5 +8,9 @@ namespace CardioLibrary
 {
     public class DataCardio
     {
+        public static int Metodo1(int età)
+        {
+            return 0;
+        }
     }
 }
