@@ -12,11 +12,18 @@ namespace CardioLibrary
         public static void Metodo_1()
         {
             int età;
-            int battitimax;
-            int Frequenzamax;
+            int battiti_max;
+            double Frequenza_max;
+            double frequenza_max_consigliata;
+            double frequenza_min_consigliata;
+            double frequenza_min;
             Console.WriteLine("inserisci l' età");
             età = Convert.ToInt32(Console.ReadLine());
-            Frequenzamax = 220 - età;
+            Frequenza_max= 220 - età;
+            frequenza_max_consigliata =Frequenza_max *  0.9;
+           
+           
+
         }
         
     }
