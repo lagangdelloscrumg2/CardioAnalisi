@@ -50,7 +50,7 @@ namespace CardioLibrary
                 }
                 else
                     analisi = "inserire un valore ragionevole";
-            }
+            } 
             else
                 analisi = "inserire un valore maggiore di zero";
             return analisi;
