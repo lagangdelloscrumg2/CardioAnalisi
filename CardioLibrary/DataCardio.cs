@@ -32,5 +32,28 @@ namespace CardioLibrary
             return analisi;
 
         }
+
+        public static string Metodo2(int battiti)
+        {
+            string analisi = "";
+            if (battiti > 0)
+            {
+                if (battiti < 250)
+                {
+
+                    if (battiti < 60)
+                        analisi = "brachicardia";
+                    else if (battiti >100)
+                        analisi = "tachicardia";
+                    else
+                        analisi = "normale";
+                }
+                else
+                    analisi = "inserire un valore ragionevole";
+            }
+            else
+                analisi = "inserire un valore maggiore di zero";
+            return analisi;
+        }
     }
 }
