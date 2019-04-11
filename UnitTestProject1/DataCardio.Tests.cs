@@ -15,7 +15,7 @@ namespace DataCardio.Tests
             string obt;
 
             età = 21;
-            exp = "la frequenza massima efficace è 179,1, quella minima è 139,3";
+            exp = "la frequenza massima efficace è 179, quella minima è 139";
             obt =  CardioLibrary.DataCardio.Metodo1(età);
             Assert.AreEqual(obt, exp);
         }
@@ -32,5 +32,32 @@ namespace DataCardio.Tests
             obt = CardioLibrary.DataCardio.Metodo1(età);
             Assert.AreEqual(obt, exp);
         }
+
+        [TestMethod]
+        public void TestMethod1_2()
+        {
+            int età;
+            string exp;
+            string obt;
+
+            età = 221;
+            exp = "inserire un numero minore di 130";
+            obt = CardioLibrary.DataCardio.Metodo1(età);
+            Assert.AreEqual(obt, exp);
+        }
+
+        [TestMethod]
+        public void TestMethod1_3()
+        {
+            int età;
+            string exp;
+            string obt;
+
+            età = 130;
+            exp = "inserire un numero minore di 130";
+            obt = CardioLibrary.DataCardio.Metodo1(età);
+            Assert.AreEqual(obt, exp);
+        }
+        
     }
 }

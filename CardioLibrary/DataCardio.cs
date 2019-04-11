@@ -11,7 +11,7 @@ namespace CardioLibrary
         public static string Metodo1(int età)
         {
             string analisi = "";
-            if (età > 0 && età < 220)
+            if (età > 0 && età < 130)
             {
                 int Freq_Max;
                 Freq_Max = 220 - età;
@@ -21,13 +21,13 @@ namespace CardioLibrary
 
                 Freq_Max_Eff = Freq_Max * 0.9;
                 Freq_Min_Eff = Freq_Max * 0.7;
-
-                analisi = $"la frequenza massima efficace è {Freq_Max_Eff}, quella minima è {Freq_Min_Eff}";
+                
+                analisi = $"la frequenza massima efficace è {Convert.ToInt32(Freq_Max_Eff)}, quella minima è {Convert.ToInt32(Freq_Min_Eff)}";
             }
             else if (età <= 0)
                 analisi = "inserire un numero maggiore di zero";
             else
-                analisi = "inserire un numero minore di 220";
+                analisi = "inserire un numero minore di 130";
 
             return analisi;
         }
