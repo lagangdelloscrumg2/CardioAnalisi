@@ -55,5 +55,56 @@ namespace CardioLibrary
                 analisi = "inserire un valore maggiore di zero";
             return analisi;
         }
+        public static string Kcal(char sesso, double freq, double peso, double età, double tempo)
+        {
+            //si inizializza la varaibile del risultato
+            string analisi = "";
+
+            if (sesso == 'M' || sesso == 'F')
+            {
+                if (freq > 0 && freq < 300)
+                {
+                    if (peso > 0 && peso < 400)
+                    {
+                        if (età > 0 && età < 130)
+                        {
+                            if (tempo > 0 && tempo < 400)
+                            {
+                                if (sesso == 'F')
+                                {
+                                    età *= 0.074;
+                                    peso *= 0.126;
+                                    freq *= 0.4472;
+                                    tempo /= 4.184;
+                                    //si esegue il calcolo finale arrotndando alla terza cifra
+                                    analisi = (Math.Round((età - peso + freq - 20.4022) * tempo, 3)).ToString();
+                                }
+                                else
+                                {
+                                    età *= 0.2107;
+                                    peso *= 0.199;
+                                    freq *= 0.6309;
+                                    tempo /= 4.184;
+                                    //si esegue il calcolo finale arrotndando alla terza cifra
+                                    analisi = (Math.Round((età + peso + freq - 55.0969) * tempo, 3)).ToString();
+                                }
+                            }
+                            else
+                                analisi = "inserire un tempo accettabile";
+                        }
+                        else
+                            analisi = "inserire un'età accettabile";
+                    }
+                    else
+                        analisi = "inserire un peso accettabile";
+                }
+                else
+                    analisi = "inserire una frequanza accettabile";
+            }
+            else
+                analisi = "inserire solo 'M' o 'F'";
+
+            return analisi;
+        }
     }
 }
