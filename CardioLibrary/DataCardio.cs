@@ -8,7 +8,7 @@ namespace CardioLibrary
 {
     public class DataCardio
     {
-        public static string Metodo1(int età)
+        public static string Freq(int età)
         {
             //si inizializza la varaibile del risultato
             string analisi = "";
@@ -39,7 +39,7 @@ namespace CardioLibrary
 
         }
 
-        public static string Metodo2(int battiti)
+        public static string Tipo_Battiti(int battiti)
         {
             //si inizializza la varaibile del risultato
             string analisi = "";
@@ -50,7 +50,7 @@ namespace CardioLibrary
                 {
                     //vari casi in base al valore dato
                     if (battiti < 60)
-                        analisi = "brachicardia";
+                        analisi = "bradicardia";
                     else if (battiti >100)
                         analisi = "tachicardia";
                     else
@@ -65,7 +65,7 @@ namespace CardioLibrary
             return analisi;
         }
 
-        public static string Metodo3(char sesso, double freq, double peso, double età, double tempo)
+        public static string Kcal(char sesso, double freq, double peso, double età, double tempo)
         {
             //si inizializza la varaibile del risultato
             string analisi = "";
@@ -109,13 +109,11 @@ namespace CardioLibrary
                         analisi = "inserire un peso accettabile";
                 }
                 else
-                    analisi = "inserire una frequanza accettbile";
-
+                    analisi = "inserire una frequanza accettabile";
             }
             else
                 analisi = "inserire solo 'M' o 'F'";
-
-            Math.Round(12.1, 1);
+            
             return analisi;
         }
     }
