@@ -119,12 +119,15 @@ namespace CardioLibrary
 
         public static string Spesa(double km, double peso, bool corsa, bool camminata)
         {
+            //si inizializza la varaibile del risultato
             string analisi = "";
 
+            //si controlla la accettbilità delle variabili
             if (km > 0 && km < 100)
             {
                 if (peso > 0 && peso < 400)
                 {
+                    //si fanno due calcoli diversi a seconda che sia stata scelta la corsa o la camminata
                     if (camminata)
                         analisi = (0.5 * km * peso).ToString();
                     if (corsa)
@@ -137,6 +140,36 @@ namespace CardioLibrary
                 analisi = "inserire una distanza accettabile";
 
             return analisi;
+        }
+
+        public static string Media(int[] battiti)
+        {
+            //si inizializza la varaibile del risultato
+            string media ;
+            //si inizializza la varaibile del risultato numerico
+            int calcolo = 0;
+            //si inizializza un contatore
+            int ctr = 0;
+            //si inizializza una flag di avvertimento
+            bool flag=false;
+
+            foreach(int battito in battiti)
+            {
+                if (battito > 0 && battito < 200)
+                {
+                    calcolo+= battito;
+                    ctr++;
+                }
+                else
+                    flag = true;
+            }
+
+            if (!flag)
+                media = Convert.ToInt32(calcolo / ctr).ToString();
+            else
+                media = "inserire battiti accettabili";
+
+            return media;
         }
     }
 }

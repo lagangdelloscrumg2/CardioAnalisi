@@ -23,7 +23,7 @@ namespace DataCardio.Tests
             //valore casuale
             età = 21;
             exp = "la frequenza massima efficace è 179, quella minima è 139";
-            obt =  CardioLibrary.DataCardio.Freq(età);
+            obt = CardioLibrary.DataCardio.Freq(età);
             Assert.AreEqual(obt, exp);
         }
 
@@ -404,6 +404,177 @@ namespace DataCardio.Tests
             obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
 
             Assert.AreEqual(obt, exp);
+        }
+        //test quart metodo, deve calcolare la spesa energetica in camminata o corsa
+        [TestMethod]
+        public void Test_Spesa_Norm()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 10;
+            peso = 60;
+            corsa = false;
+            camminata = true;
+
+            exp = "300";
+            obt = CardioLibrary.DataCardio.Spesa( km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Km_neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 0;
+            peso = 60;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire una distanza accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Km_Gran()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 0;
+            peso = 60;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire una distanza accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Peso_neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 20;
+            peso = -60;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire un peso accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Peso_Gran()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 20;
+            peso = 600;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire un peso accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Media()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60,66,63,65,70,57,64};
+
+            exp = "63";
+            obt = CardioLibrary.DataCardio.Media(battiti);
+
+            Assert.AreEqual(exp, obt);
+        }
+
+        [TestMethod]
+        public void Test_Media_Val_Neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { -60, 66, 63, 65, 70, 57, 64 };
+
+            exp = "inserire battiti accettabili";
+            obt = CardioLibrary.DataCardio.Media(battiti);
+
+            Assert.AreEqual(exp, obt);
         }
     }
 }
