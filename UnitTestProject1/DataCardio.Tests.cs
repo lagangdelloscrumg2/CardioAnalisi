@@ -7,132 +7,150 @@ namespace DataCardio.Tests
     [TestClass]
     public class UnitTest1
     {
-        //test primo metodo
+        //test primo metodo, deve poter calcolare le frequanze massima e minima per un allenamento efficace
 
         [TestMethod]
-        public void TestMethod1()
+        public void Test_Freq_Norm()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int età;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore casuale
             età = 21;
             exp = "la frequenza massima efficace è 179, quella minima è 139";
-            obt =  CardioLibrary.DataCardio.Metodo1(età);
+            obt = CardioLibrary.DataCardio.Freq(età);
             Assert.AreEqual(obt, exp);
         }
 
         [TestMethod]
-        public void TestMethod1_1()
+        public void Test_Freq_Neg()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int età;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore negativo
             età = -21;
             exp = "inserire un numero maggiore di zero";
-            obt = CardioLibrary.DataCardio.Metodo1(età);
+            obt = CardioLibrary.DataCardio.Freq(età);
             Assert.AreEqual(obt, exp);
         }
 
         [TestMethod]
-        public void TestMethod1_2()
+        public void Test_Freq_Gran()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int età;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore troppo grande
             età = 221;
             exp = "inserire un numero minore di 130";
-            obt = CardioLibrary.DataCardio.Metodo1(età);
+            obt = CardioLibrary.DataCardio.Freq(età);
             Assert.AreEqual(obt, exp);
         }
 
+        //test secondo metodo deve capire se il soggeto analizzato sia brachicardico, abbia un battito normale o sia tachicardico
         [TestMethod]
-        public void TestMethod1_3()
+        public void Test_Tipo_Battiti_Brac()
         {
-            int età;
-            string exp;
-            string obt;
-
-            //valore appena troppo grande
-            età = 130;
-            exp = "inserire un numero minore di 130";
-            obt = CardioLibrary.DataCardio.Metodo1(età);
-            Assert.AreEqual(obt, exp);
-        }
-
-        //test secondo metodo
-        [TestMethod]
-        public void TestMethod2()
-        {
+            //inizializzazione variabili
+            //variabili di calcolo
             int battiti;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore brachicardico
             battiti = 59;
-            exp = "brachicardia";
-            obt = CardioLibrary.DataCardio.Metodo2(battiti);
+            exp = "bradicardia";
+            obt = CardioLibrary.DataCardio.Tipo_Battiti(battiti);
             Assert.AreEqual(obt, exp);
         }
 
         [TestMethod]
-        public void TestMethod2_1()
+        public void Test_Tipo_Battiti_Norm()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int battiti;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore normale
             battiti = 65;
             exp = "normale";
-            obt = CardioLibrary.DataCardio.Metodo2(battiti);
+            obt = CardioLibrary.DataCardio.Tipo_Battiti(battiti);
             Assert.AreEqual(obt, exp);
         }
 
         [TestMethod]
-        public void TestMethod2_2()
+        public void Test_Tipo_Battiti_tach()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int battiti;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore tachicardico
             battiti = 111;
             exp = "tachicardia";
-            obt = CardioLibrary.DataCardio.Metodo2(battiti);
+            obt = CardioLibrary.DataCardio.Tipo_Battiti(battiti);
             Assert.AreEqual(obt, exp);
         }
 
         [TestMethod]
-        public void TestMethod2_3()
+        public void Test_Tipo_Battiti_Neg()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int battiti;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
             //valore negativo
             battiti = -59;
             exp = "inserire un valore maggiore di zero";
-            obt = CardioLibrary.DataCardio.Metodo2(battiti);
+            obt = CardioLibrary.DataCardio.Tipo_Battiti(battiti);
             Assert.AreEqual(obt, exp);
         }
 
         [TestMethod]
-        public void TestMethod2_4()
+        public void Test_Tipo_Battiti_Gran()
         {
+            //inizializzazione variabili
+            //variabili di calcolo
             int battiti;
+            //risultato previsto
             string exp;
+            //risultato del metodo
             string obt;
 
-            //valore tropp grande
+            //valore troppo grande
             battiti = 500;
             exp = "inserire un valore ragionevole";
-            obt = CardioLibrary.DataCardio.Metodo2(battiti);
+            obt = CardioLibrary.DataCardio.Tipo_Battiti(battiti);
             Assert.AreEqual(obt, exp);
         }
         //test terzo metodo, deve calcolare le calorie bruciate
@@ -386,7 +404,140 @@ namespace DataCardio.Tests
 
             Assert.AreEqual(obt, exp);
         }
+        //test quart metodo, deve calcolare la spesa energetica in camminata o corsa
+        [TestMethod]
+        public void Test_Spesa_Norm()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
 
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
 
+            km = 10;
+            peso = 60;
+            corsa = false;
+            camminata = true;
+
+            exp = "300";
+            obt = CardioLibrary.DataCardio.Spesa( km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Km_neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 0;
+            peso = 60;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire una distanza accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Km_Gran()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 0;
+            peso = 60;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire una distanza accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Peso_neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 20;
+            peso = -60;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire un peso accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
+
+        [TestMethod]
+        public void Test_Spesa_Peso_Gran()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //variabili di calcolo
+            double km;
+            double peso;
+            bool corsa;
+            bool camminata;
+
+            km = 20;
+            peso = 600;
+            corsa = false;
+            camminata = true;
+
+            exp = "inserire un peso accettabile";
+            obt = CardioLibrary.DataCardio.Spesa(km, peso, corsa, camminata);
+
+            Assert.AreEqual(exp, obt);
+
+        }
     }
 }
