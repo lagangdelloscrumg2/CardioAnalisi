@@ -116,5 +116,27 @@ namespace CardioLibrary
             
             return analisi;
         }
+
+        public static string Spesa(double km, double peso, bool corsa, bool camminata)
+        {
+            string analisi = "";
+
+            if (km > 0 && km < 100)
+            {
+                if (peso > 0 && peso < 400)
+                {
+                    if (camminata)
+                        analisi = (0.5 * km * peso).ToString();
+                    if (corsa)
+                        analisi = (0.9 * km * peso).ToString();
+                }
+                else
+                    analisi = "inserire un peso accettabile";
+            }
+            else
+                analisi = "inserire una distanza accettabile";
+
+            return analisi;
+        }
     }
 }
