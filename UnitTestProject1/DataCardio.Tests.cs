@@ -244,96 +244,6 @@ namespace DataCardio.Tests
 
             Assert.AreEqual(obt, exp);
         }
-        //test terzo metodo, deve calcolare le calorie bruciate
-        [TestMethod]
-        public void Test_Kcal_Norm_M()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            double peso = 80;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "318,377";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Norm_F()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'F';
-            double freq = 100;
-            double peso = 80;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "174,62";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Sex_NotAcc()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            //sesso non accettabile
-            char sesso = 'c';
-            double freq = 100;
-            double peso = 80;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "inserire solo 'M' o 'F'";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Freq_Neg()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            //frequenza negativa
-            double freq = -100;
-            double peso = 80;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "inserire una frequanza accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
 
         [TestMethod]
         public void Test_Kcal_Freq_Gran()
@@ -451,7 +361,7 @@ namespace DataCardio.Tests
         }
 
         [TestMethod]
-        public void Test_Kcal_Tampo_Neg()
+        public void Test_Kcal_Tempo_Neg()
         {
             //inizializzazione variabili
             //risultato previsto
@@ -462,7 +372,7 @@ namespace DataCardio.Tests
             //variabili di calcolo
             char sesso = 'M';
             double freq = 100;
-            double peso = 90;
+            double peso = 90;       
             double età = 27;
             //tempo negativo
             double tempo = -45;
@@ -474,168 +384,7 @@ namespace DataCardio.Tests
         }
 
         [TestMethod]
-        public void Test_Kcal_Tampo_Gran()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            double peso = 90;
-            double età = 27;
-            //tempo troppo grande
-            double tempo = 450;
-
-            exp = "inserire un tempo accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Freq_Gran()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            //frequenza troppo grande
-            double freq = 500;
-            double peso = 80;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "inserire una frequanza accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Peso_Neg()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            //peso negativo
-            double peso = -80;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "inserire un peso accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Peso_Gran()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            //peso troppo grande
-            double peso = 800;
-            double età = 27;
-            double tempo = 45;
-
-            exp = "inserire un peso accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Eta_Neg()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            double peso = 90;
-            //età neagtiva
-            double età = -27;
-            double tempo = 45;
-
-            exp = "inserire un'età accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Eta_Gran()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            double peso = 90;
-            //età troppo grande
-            double età = 207;
-            double tempo = 45;
-
-            exp = "inserire un'età accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Tampo_Neg()
-        {
-            //inizializzazione variabili
-            //risultato previsto
-            string exp;
-            //risultato del metodo
-            string obt;
-
-            //variabili di calcolo
-            char sesso = 'M';
-            double freq = 100;
-            double peso = 90;
-            double età = 27;
-            //tempo negativo
-            double tempo = -45;
-
-            exp = "inserire un tempo accettabile";
-            obt = CardioLibrary.DataCardio.Kcal(sesso, freq, peso, età, tempo);
-
-            Assert.AreEqual(obt, exp);
-        }
-
-        [TestMethod]
-        public void Test_Kcal_Tampo_Gran()
+        public void Test_Kcal_Tempo_Gran()
         {
             //inizializzazione variabili
             //risultato previsto
