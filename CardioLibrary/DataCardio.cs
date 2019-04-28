@@ -106,6 +106,17 @@ namespace CardioLibrary
 
             return analisi;
         }
+        public static double Spesa(bool corsa, bool camminata, double km, double peso)
+        {
+            double kcal = 0;
+            if (corsa)
+                kcal = 0.9 * km * peso;
+            if (camminata)
+                kcal = 0.5 * km * peso;
+
+            return kcal;
+
+        }
     }
 }
    

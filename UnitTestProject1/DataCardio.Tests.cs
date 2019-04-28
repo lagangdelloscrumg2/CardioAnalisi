@@ -388,5 +388,58 @@ namespace DataCardio.Tests
         }
 
 
+
+        [TestMethod]
+        public void Test_Spesa()
+        {
+            bool corsa = false;
+            bool camminata = true;
+            double km = 10;
+            double peso = 60;
+
+            double aspettativa = 300;
+            double risultato = CardioLibrary.DataCardio.Spesa(corsa, camminata, km, peso);
+
+            Assert.AreEqual(aspettativa, risultato);
+
+
+
+
+        }
+        [TestMethod]
+        public void Test_Spesa2()
+        {
+            bool corsa = false;
+            bool camminata = true;
+            double km = 10;
+            double peso = 70;
+
+            double aspettativa = 350;
+            double risultato = CardioLibrary.DataCardio.Spesa(corsa, camminata, km, peso);
+
+            Assert.AreEqual(aspettativa, risultato);
+
+
+
+
+        }
+        [TestMethod]
+        public void Test_Spesa3()
+        {
+            bool corsa = false;
+            bool camminata = true;
+            double km = 10;
+            double peso = 70;
+
+            double aspettativa = 630;
+            double risultato = CardioLibrary.DataCardio.Spesa(corsa, camminata, km, peso);
+
+            Assert.AreEqual(aspettativa, risultato);
+
+
+
+
+        }
+
     }
 }
