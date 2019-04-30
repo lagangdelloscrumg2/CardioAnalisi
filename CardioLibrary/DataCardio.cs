@@ -245,27 +245,12 @@ namespace CardioLibrary
             return analisi;
         }
 
-        public static string Ordinamento(int[] battiti)
+        public static int[] Ordinamento(int[] battiti)
         {
-            //si inizializza la varaibile del risultato
-            string analisi = "";
-
-            //si inizializza una flag di avvertimento
-            bool flag = false;
-
-            foreach (int battito in battiti)
-            {
-                if (battito > 0 && battito < 200)
-                    flag = true;
-            }
-
             //si ordina l'array
-            if (!flag) 
-                Array.Sort(battiti);
-            else
-                analisi = "inserire battiti accettabili";
+            Array.Sort(battiti);
 
-            return analisi;
+            return battiti;
         }
     }
 }

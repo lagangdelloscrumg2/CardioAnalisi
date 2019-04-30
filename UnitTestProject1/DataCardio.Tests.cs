@@ -648,5 +648,41 @@ namespace DataCardio.Tests
 
             Assert.AreEqual(exp, obt);
         }
+
+        [TestMethod]
+        public void Test_Ordinamento()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            int[] exp;
+            //risultato del metodo
+            int[] obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60, 66, 63, 80, 70, 57, 64 };
+
+            exp = new int[] { 57, 60, 63, 64, 66, 70, 80 };
+            obt = CardioLibrary.DataCardio.Ordinamento(battiti);
+
+            CollectionAssert.AreEqual(exp, obt);
+        }
+
+        [TestMethod]
+        public void Test_Ordinamento_2()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            int[] exp;
+            //risultato del metodo
+            int[] obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60, 66, 63, 80, 77, 59, 64 , 91};
+
+            exp = new int[] { 59, 60, 63, 64, 66, 77, 80, 91 };
+            obt = CardioLibrary.DataCardio.Ordinamento(battiti);
+
+            CollectionAssert.AreEqual(exp, obt);
+        }
     }
 }
