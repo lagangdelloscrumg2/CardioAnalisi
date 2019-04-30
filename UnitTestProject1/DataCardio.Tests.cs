@@ -576,5 +576,77 @@ namespace DataCardio.Tests
 
             Assert.AreEqual(exp, obt);
         }
+
+        [TestMethod]
+        public void Test_Riposo()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60, 66, 63, 65, 70, 57, 64 };
+
+            exp = "57";
+            obt = CardioLibrary.DataCardio.Riposo(battiti);
+
+            Assert.AreEqual(exp, obt);
+        }
+
+        [TestMethod]
+        public void Test_Riposo_Val_Neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60, 66, -63, 300, 70, 57, 64 };
+
+            exp = "inserire battiti accettabili";
+            obt = CardioLibrary.DataCardio.Riposo(battiti);
+
+            Assert.AreEqual(exp, obt);
+        }
+
+        [TestMethod]
+        public void Test_Variab()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60, 66, 63, 80, 70, 57, 64 };
+
+            exp = "23";
+            obt = CardioLibrary.DataCardio.Variab(battiti);
+
+            Assert.AreEqual(exp, obt);
+        }
+
+        [TestMethod]
+        public void Test_Variab_Val_Neg()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+
+            //array dei battiti
+            int[] battiti = new int[] { 60, 66, 63, 800, 70, 57, 64 };
+
+            exp = "inserire battiti accettabili";
+            obt = CardioLibrary.DataCardio.Variab(battiti);
+
+            Assert.AreEqual(exp, obt);
+        }
     }
 }

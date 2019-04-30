@@ -171,5 +171,101 @@ namespace CardioLibrary
 
             return media;
         }
+
+        public static string Riposo(int[] battiti)
+        {
+            //si inizializza la varaibile del risultato
+            string analisi ="";
+
+            //si inizializza una flag di avvertimento
+            bool flag = false;
+
+            //si inizializza una variabile che contiene il valore del battito a riposo
+            int min;
+            min = battiti[0];
+
+            foreach (int battito in battiti)
+            {
+                if (battito > 0 && battito < 200)
+                {
+                    if (battito < min)
+                        min = battito;
+                }
+                else
+                    flag = true;
+            }
+
+            if (flag)
+                analisi = "inserire battiti accettabili";
+            else
+                analisi = min.ToString();
+
+            return analisi;
+        }
+
+        public static string Variab(int[] battiti)
+        {
+            //si inizializza la varaibile del risultato
+            string analisi = "";
+
+            //si inizializza una flag di avvertimento
+            bool flag = false;
+
+            //si inizializza una variabile che contiene il valore minimo
+            int min;
+            //si inizializza una variabile che contiene il valore massimo
+            int max;
+
+            //si inizializza la varaibile del risultato numerico
+            int calcolo;
+
+            max = battiti[0];
+            min = battiti[0];
+
+            foreach (int battito in battiti)
+            {
+                if (battito > 0 && battito < 200)
+                {
+                    if (battito < min)
+                        min = battito;
+
+                    if (battito > max)
+                        max = battito;
+                }
+                else
+                    flag = true;
+            }
+            calcolo = max - min;
+
+            if (flag)
+                analisi = "inserire battiti accettabili";
+            else
+                analisi = calcolo.ToString();
+
+            return analisi;
+        }
+
+        public static string Ordinamento(int[] battiti)
+        {
+            //si inizializza la varaibile del risultato
+            string analisi = "";
+
+            //si inizializza una flag di avvertimento
+            bool flag = false;
+
+            foreach (int battito in battiti)
+            {
+                if (battito > 0 && battito < 200)
+                    flag = true;
+            }
+
+            //si ordina l'array
+            if (!flag) 
+                Array.Sort(battiti);
+            else
+                analisi = "inserire battiti accettabili";
+
+            return analisi;
+        }
     }
 }
