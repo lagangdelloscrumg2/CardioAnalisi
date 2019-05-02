@@ -265,12 +265,14 @@ namespace CardioLibrary
             if(tipo_battito=="bradicardia")
             {
                 analisi = "si possono verificare: vertigini, dolore al petto e confusione\n" +
-                "Può essere causata da: pressione alta, infezioni o famaci\n" +
-                "Può essere curato con molti farmaci"; ;
+                "Può essere causata da: pressione alta, infezioni o farmaci\n" +
+                "Può essere curato con molti farmaci"; 
             }
             else if(tipo_battito == "tachicardia")
             {
-                analisi = "";
+                analisi = "si possono verificare: respir corto, e senso di svenimento\n" +
+                "Può essere causata da: anemia, abitudine al fumo o abuso di alcol\n" +
+                "Può essere curato con molti farmaci o manovre vagali"; 
             }
             else if (tipo_battito == "normale")
             {
@@ -278,7 +280,7 @@ namespace CardioLibrary
             }
             else
             {
-                analisi = "";
+                analisi = "inserire valori accettabili";
             }
 
             return analisi;

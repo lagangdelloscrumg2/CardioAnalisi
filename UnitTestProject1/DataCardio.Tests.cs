@@ -719,7 +719,7 @@ namespace DataCardio.Tests
             battito = 40;
 
             exp = "si possono verificare: vertigini, dolore al petto e confusione\n" +
-                "Può essere causata da: pressione alta, infezioni o famaci\n" +
+                "Può essere causata da: pressione alta, infezioni o farmaci\n" +
                 "Può essere curato con molti farmaci";
             obt = CardioLibrary.DataCardio.Malattia(battito);
 
@@ -737,11 +737,30 @@ namespace DataCardio.Tests
             //variabile di calcolo
             int battito;
 
-            battito = 40;
+            battito = 110;
 
             exp = "si possono verificare: respir corto, e senso di svenimento\n" +
-                "Può essere causata da: pressione alta, infezioni o famaci\n" +
-                "Può essere curato con molti farmaci";
+                "Può essere causata da: anemia, abitudine al fumo o abuso di alcol\n" +
+                "Può essere curato con molti farmaci o manovre vagali";
+            obt = CardioLibrary.DataCardio.Malattia(battito);
+
+            Assert.AreEqual(exp, obt);
+        }
+
+        [TestMethod]
+        public void Test_Malattia_Not_Acc()
+        {
+            //inizializzazione variabili
+            //risultato previsto
+            string exp;
+            //risultato del metodo
+            string obt;
+            //variabile di calcolo
+            int battito;
+
+            battito = -40;
+
+            exp = "inserire valori accettabili";
             obt = CardioLibrary.DataCardio.Malattia(battito);
 
             Assert.AreEqual(exp, obt);
