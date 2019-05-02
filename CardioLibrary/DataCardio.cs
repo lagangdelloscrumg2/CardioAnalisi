@@ -282,7 +282,7 @@ namespace CardioLibrary
             {
                 analisi = "inserire valori accettabili";
             }
-
+            
             return analisi;
         }
     }
