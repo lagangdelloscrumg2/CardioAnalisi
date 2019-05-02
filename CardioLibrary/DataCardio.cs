@@ -252,5 +252,36 @@ namespace CardioLibrary
 
             return battiti;
         }
+
+        public static string Malattia(int battito)
+        {
+            //si inizializza la varaibile del risultato
+            string analisi = "";
+            //si inizializza la varaibile per controllareil battito
+            string tipo_battito = "";
+
+            tipo_battito = Tipo_Battiti(battito);
+
+            if(tipo_battito=="bradicardia")
+            {
+                analisi = "si possono verificare: vertigini, dolore al petto e confusione\n" +
+                "Può essere causata da: pressione alta, infezioni o famaci\n" +
+                "Può essere curato con molti farmaci"; ;
+            }
+            else if(tipo_battito == "tachicardia")
+            {
+                analisi = "";
+            }
+            else if (tipo_battito == "normale")
+            {
+                analisi = "il battito cardiaco è nella norma";
+            }
+            else
+            {
+                analisi = "";
+            }
+
+            return analisi;
+        }
     }
 }
